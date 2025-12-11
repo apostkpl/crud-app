@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Database Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+        table { width: 80%; margin-top: 15px; }
+        a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>My Movie Database</h1>
+
+    <p>
+        <a th:href="@{/showNewMovieForm}"> Add New Movie </a>
+    </p>
+
+    <div th:if="${#lists.isEmpty(listMovies)}">
+        <p>No movies found in the database. Add one above!</p>
+    </div>
+
+    <table th:unless="${#lists.isEmpty(listMovies)}">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Year</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="movie : ${listMovies}">
+                <td th:text="${movie.title}"></td>
+                <td th:text="${movie.director}"></td>
+                <td th:text="${movie.releaseYear}"></td>
+                <td th:text="${movie.rating}"></td>
+                <td>
+                    <a th:href="@{/showFormForUpdate/{id}(id=${movie.id})}">Update</a>
+                    <a th:href="@{/deleteMovie/{id}(id=${movie.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
