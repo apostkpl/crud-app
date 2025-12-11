@@ -5,9 +5,7 @@
 - REST API
 - Thymeleaf
 
-<br><br>
-
-## Tools used for this project:
 <br>
 
+## Tools used for this project:
 [![tools](https://skillicons.dev/icons?i=java,vscode,git,spring,maven,mysql)](https://skillicons.dev)
