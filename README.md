@@ -5,6 +5,8 @@
 - REST API
 - Thymeleaf
 
+<br><br>
+
 ## Tools used for this project:
 <br>
 
