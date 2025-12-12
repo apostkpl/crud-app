@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Error</title>
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.2/dist/darkly/bootstrap.min.css">
+
+    <style>
+        .alert-danger {
+            background-color: #7b241c !important; /* A darker, rich maroon/red */
+            color: #ffffff !important; 
+            border-color: #900C3F !important;
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+    <div class="container my-5">
+        <div class="alert alert-danger" role="alert">
+            <h1 class="alert-heading">
+                <span th:text="${status}"></span> Error!
+            </h1>
+            <p>
+                The server encountered an error while processing your request. 
+                This is likely due to an invalid URL, a bad request, or a missing resource.
+            </p>
+            <hr>
+            
+            <p class="mb-0">
+                <strong>Error Message:</strong> <span th:text="${error}"></span><br>
+                <strong>Path Requested:</strong> <span th:text="${path}"></span>
+            </p>
+        </div>
+        
+        <a th:href="@{/}" class="btn btn-secondary mt-3">Go Back to Home Page</a>
+    </div>
+</body>
+</html>
